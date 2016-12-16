@@ -4,5 +4,6 @@ $config['clientId'] = 'XXXX'; //add your client id
 $config['clientSecret'] = 'XXXX'; //add your client secret
 $config['redirectUri'] = 'XXXX'; //add your redirect uri
 $config['apiKey'] = ''; //add your api key here
+$config['applicationName'] ='Application Name'; //application name for the api
 
 ?>
