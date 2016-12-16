@@ -5,9 +5,9 @@
  *
  * Library for Codeigniter to authenticate users through Google OAuth 2.0 and get user profile info
  *
- * @author      Harsha G
+ * @authors     Harsha G, Nick Humphries
  * @license     MIT
- * @link        https://github.com/darkwhispering/facebook-sdk-v4-codeigniter
+ * @link        https://github.com/angel-of-death/Codeigniter-Google-OAuth-Login
  */
 
 class Google {
@@ -15,25 +15,22 @@ class Google {
 	{
 		$this->ci =& get_instance();
 
-		include (APPPATH.'libraries/googleSDK/vendor/autoload.php');
+        include_once __DIR__ . '/../../vendor/autoload.php';
 
 		$this->ci->load->config('google');
 
 		$this->ci->load->library('session');
 
 		$this->client = new Google_Client();
+        $this->client->setApplicationName($this->ci->config->item('applicationName'));
 
-		$this->client->setClientId($this->ci->config->item('clientId'));
+        $this->client->setClientId($this->ci->config->item('clientId'));
+        $this->client->setClientSecret($this->ci->config->item('clientSecret'));
+        $this->client->setRedirectUri($this->ci->config->item('redirectUri'));
+        $this->client->setDeveloperKey($this->ci->config->item('apiKey'));
 
-		$this->client->setClientSecret($this->ci->config->item('clientSecret'));
-
-		$this->client->setRedirectUri($this->ci->config->item('redirectUri'));
-
-		$this->client->addScope('https://www.googleapis.com/auth/userinfo.email');
-
-		$this->client->addScope('https://www.googleapis.com/auth/userinfo.profile');
-
-		$this->client->setAccessType('offline');
+        $this->client->addScope('https://www.googleapis.com/auth/userinfo.email');
+        $this->client->setAccessType('offline');
 
 		if($this->ci->session->userdata('refreshToken')!=null)
 		{
