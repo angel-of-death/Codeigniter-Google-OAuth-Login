@@ -3,9 +3,9 @@ Library for Codeigniter to authenticate users through Google OAuth 2.0 and get u
 
 ##Installation
 1. Download the files.
+2. Install google apiclient with Composer `composer require google/apiclient`  
 2. Copy the `google.php` file from the `config` folder and paste it in your application's config folder.
-3. Add your `client id`, `client secret` and `redirect uri` in the `google.php` file that you just copied. If you don't know how to get the client id and client secret, you can read about it [here] (https://developers.google.com/identity/protocols/OAuth2WebServer#creatingcred). Redirect uri is where you want the user to be redirected to once he logs in with his google email and password.
-4. Copy the `googleSDk` folder and the `google.php` file from the `libraries` folder and paste them in your application's libraries folder.
+3. Add your `client id`, `client secret`, `apiKey`(optional) and `redirect uri` in the `google.php` file that you just copied. If you don't know how to get the client id and client secret, you can read about it [here] (https://developers.google.com/identity/protocols/OAuth2WebServer#creatingcred). Redirect uri is where you want the user to be redirected to once he logs in with his google email and password.
 5. That's it.
 
 ##Usage
